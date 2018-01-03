@@ -1,14 +1,16 @@
 package dev.api.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RestController;
 
+import dev.api.entite.Departement;
 import dev.api.repository.DepartementRepository;
 
-@Controller
+@RestController
 @RequestMapping("/api/departements")
 public class DepartementController {
 
@@ -16,10 +18,8 @@ public class DepartementController {
 	private DepartementRepository departementRepo;
 
 	@GetMapping
-	public ModelAndView afficherAccueil() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("api/departements");
-		mv.addObject("listeDepartements", departementRepo.findAll());
-		return mv;
+	public List<Departement> ListeDepartements(){
+		
+		return this.departementRepo.findAll();
 	}
 }

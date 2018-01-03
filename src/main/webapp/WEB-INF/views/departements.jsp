@@ -11,7 +11,7 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Id</th>
+				<th>ID</th>
 				<th>NOM</th>
 			</tr>
 		</thead>
