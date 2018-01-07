@@ -1,8 +1,5 @@
 package dev.api.entite;
 
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,12 +26,9 @@ public class Collaborateur {
 	@ManyToOne
 	@JoinColumn(name="ID_DEPARTEMENT")
 	private Departement departement;	
-	@Column(name="BANQUE")
-	private String banque;
-	@Column(name="BIC")
-	private String bic;
-	@Column(name="IBAN")
-	private String iban;
+	@ManyToOne
+	@JoinColumn(name="ID_BANQUE_INFOS")
+	private BanqueInfos banqueInfos;
 	
 	public Collaborateur() {
 		
@@ -73,28 +67,11 @@ public class Collaborateur {
 		this.departement = departement;
 	}
 
-	public String getBanque() {
-		return banque;
+	public BanqueInfos getBanqueInfos() {
+		return banqueInfos;
 	}
 
-	public void setBanque(String banque) {
-		this.banque = banque;
+	public void setBanqueInfos(BanqueInfos banqueInfos) {
+		this.banqueInfos = banqueInfos;
 	}
-
-	public String getBic() {
-		return bic;
-	}
-
-	public void setBic(String bic) {
-		this.bic = bic;
-	}
-
-	public String getIban() {
-		return iban;
-	}
-
-	public void setIban(String iban) {
-		this.iban = iban;
-	}
-	
 }
